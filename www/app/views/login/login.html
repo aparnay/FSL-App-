@@ -1,0 +1,42 @@
+
+<ion-pane>
+  <div class="bar bar-header bar-positive">
+  <h1 class="title">Login</h1>
+  <button class="button button-clear" ng-click="openConnectionPopover($event)"><i class="icon ion-ios-gear-outline" style="color:white"></i></button>
+</div>
+<ion-view title="Login">
+  <ion-content class="has-header">
+    <div class="row responsive-sm">
+    <div id="logincard" class="card col-50 col-offset-25" style="">
+        <pre style="color: red; text-align: center;">{{error.message}}</pre>
+        <div class="list list-inset" style="z-index:1">
+          <span class="input-label">Username</span>
+          <label class="item item-input" style="border-bottom:1px solid #ccc;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #ccc">
+            <input ng-model="username" type="email" placeholder="" />
+          </label>
+        </div>
+        <div class="list list-inset">
+          <span class="input-label">Password</span>
+          <label class="item item-input" style="border-bottom:1px solid #ccc;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #ccc">
+            <input ng-model="password" type="password" />
+          </label>
+        </div>
+
+        <div class="row">
+          <button ng-click="login(username,password)" class="button button-block button-positive">
+            Log In to {{myEnvironment}}
+          </button>
+        </div>
+        <div class="row">
+          <div class="col col-100"><ion-checkbox ng-model="rememberme">Remember me</ion-checkbox></div>
+        </div>
+        <div class=row>
+          <div class="col col-50 text-left"  style="color:#387ef5">Forgot Your Password?</div>
+          <div class="col col-50 text-right" style="color:#387ef5">Use Custom Domain</div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+
+</ion-pane>

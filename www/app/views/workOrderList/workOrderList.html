@@ -1,0 +1,47 @@
+<ion-view view-title="Work Orders">
+  <ion-content>
+    <div style="text-align: center">
+      <pre>Current Location is: {{address}}</pre>
+      <pre>Latitude: {{position.lat}}, Longitude: {{position.long}}</pre>
+      </div>
+    <div class="card" style="padding: 15px;">
+        <div ui-calendar="uiConfig.calendar" id="myCalendar" calendar="myCalendar" ng-model="eventSources"></div>
+      </div>
+    <div class="list" ng-repeat="workOrder in WorkOrders">
+      
+      <div class="card">
+        <div class="item item-text-wrap">
+          <h1 class="item item-divider" style="font-weight: 800">Work Order {{workOrder.WorkOrderNumber}}</h1>
+          <div class="row" style="font-weight: 800">
+            <div class="col col-33">Status:</div>
+            
+            <div class="col col-33">Priority:</div>
+            
+            <div class="col col-33">Grand Total:</div>
+          </div>
+          <div class="row">
+            <div class="col col-33">{{workOrder.Status}}</div>
+            <div class="col col-33">{{workOrder.Priority}}</div>
+            <div class="col col-33">{{workOrder.GrandTotal}}</div>
+          </div>
+          <div class="row">
+            
+          </div>
+          <div class="row responsive-sm">
+            <div class="col col-33">
+              <h2 style="font-weight: 800">Owner</h2>
+              {{workOrder.Owner.Name}}
+            </div>
+            <div class="col col-33">
+              <h2 style="font-weight: 800">Contact</h2>
+              {{workOrder.Contact.Name}}
+            </div>
+            <div class="col col-33">
+              <button class="button button-block button-positive" ng-click="detail(workOrder.Id)">View Details{{workOrder.Id}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

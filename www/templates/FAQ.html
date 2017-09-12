@@ -1,0 +1,23 @@
+<ion-view title="FAQ" id="page6" style="background-color:#EEEEEE;">
+  <ion-nav-buttons side="right" class="has-header">
+    <button ng-click="backTohelp()" style="color:#0070d2;" class="button button-icon icon ion-arrow-left-c"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <ion-list>
+        <div ng-repeat="faq in faqs">
+          <ion-item class="item-stable item-text-wrap item-icon-right light" ng-click="toggleFaq(faq)"
+                    ng-class="{active: isFaqShown(faq)}">{{faq.question}}
+              <i class="icon" ng-class="isFaqShown(faq) ? 'ion-android-arrow-dropdown' : 'ion-android-arrow-dropright'"></i>
+
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isFaqShown(faq)">
+
+            <div class="item-text-wrap">
+              {{faq.answer}}
+            </div>
+
+          </ion-item>
+        </div>
+      </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,81 @@
+<ion-view title="Work Order Details" id="page4" style="background-color:#ffffff;">
+  <ion-nav-buttons side="right" class="has-header">
+    <button ng-click="backToWO()" style="color:#0070d2;" class="button button-icon icon ion-arrow-left-c"></button>
+  </ion-nav-buttons>
+<ion-content padding="true" class="has-header">
+  <div class="list card" ng-show="workOrder">
+    <div class="item" style="background:rgba(0, 0, 0, 0.07);color:#16325c; font-size:14px!important">
+      Work Order #{{workOrder.WorkOrderNumber}}
+    </div>
+    <div class="item-body"  style="border-bottom: 0px!important;background:rgba(244,246,249,.5);">
+      <div id="workOrderDetails-markdown7" class="show-list-numbers-and-dots">
+        <div class="row">
+            <div class="col col-33"><strong>Subject</strong></div>
+            <div class="col col-66">{{workOrder.Subject}}</div>
+        </div>
+        <div class="row">
+            <div class="col col-33"><strong>Description</strong></div>
+            <div class="col col-66">{{workOrder.Description}}</div>
+        </div>
+        <div class="row">
+            <div class="col col-33"><strong>Work Order Type</strong></div>
+            <div class="col col-66">{{workOrder.Work_Order_Type__c}}</div>
+        </div>
+        <div class="row">
+            <div class="col col-33"><strong>Account</strong></div>
+            <div class="col col-66">{{workOrder.Account.Name}}</div>
+        </div>
+        <div class="row">
+            <div class="col col-33"><strong>Address</strong></div>
+            <div class="col col-50">
+              {{workOrder.Account.BillingAddress.street}} {{workOrder.Account.BillingAddress.city}}
+              {{workOrder.Account.BillingAddress.state}} {{workOrder.Account.BillingAddress.country}}
+            </div>
+            <div class="col col-10">
+              <button class="button button-icon icon ion-ios-location"
+               style="color:#0070d2;" ng-click="showGMap(workOrder.Account.BillingAddress)">
+             </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-33"><strong>Status</strong></div>
+            <div class="col col-66">{{workOrder.Status}}</div>
+        </div>
+        <div class="row">
+            <div class="col col-33"><strong>Start Date</strong></div>
+            <div class="col col-66">{{workOrder.StartDate | date:"MMMM d, y 'at' h:mma"}}</div>
+        </div>
+        <div class="row">
+            <div class="col col-33"><strong>End Date</strong></div>
+            <div class="col col-66">{{workOrder.EndDate | date:"MMMM d, y 'at' h:mma"}}</div>
+        </div>
+      </div>
+
+    <div class="col col">
+      <label class="item-input item-select" style="background:rgba(244,246,249,.5);color:#16325c!important; font-size:14px!important;padding:5px!important;">
+        <div>
+          <strong>Choose New Status</strong>
+        </div>
+        <select style="background:rgba(244,246,249,.5);" ng-change="getStatus(status,workOrder.StartDate)" ng-model='status' required ng-options='statusOption.value as statusOption.name for statusOption in statusOptions'></select>
+      </label>
+    </div>
+      <div class="row">
+        <div class="col col"><strong>Comment</strong></div>
+      </div>
+      <div class="row">
+        <label class="custom-textarea item-input text">
+          <textarea id="description" class="slds-textarea" placeholder="Place a comment" ng-model="description" name="Place a comment"></textarea>
+        </label>
+      </div>
+    </div>
+  <div class="slds-modal__footer">
+    <!--<button class="slds-button slds-button_neutral" ng-click="changeStatusNew('In Progress',workOrder.Description)">Punch In</button>-->
+    <button class="slds-button slds-button_destroy" ng-click="punchIn(description)">Punch In</button>
+    <button class="slds-button slds-button_brand"   ng-click="punchOut(description)">Punch Out</button>
+  </div>
+
+
+  </div>
+</ion-content>
+</ion-view>

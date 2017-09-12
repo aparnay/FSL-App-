@@ -1,0 +1,40 @@
+<div class="modal">
+  <header class="bar bar-header bar-positive">
+    <h1 class="title">{{title}}</h1>
+    <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+  </header>
+  <ion-content scroll="false" class="has-header" padding="true">
+    <div class="list card">
+      <div class="item" style="background:rgba(0, 0, 0, 0.07);color:#16325c; font-size:14px!important">
+        <a class="item item-avatar" >
+          <img src="/img/profile.png">
+          <h2>{{user.Name}}</h2>
+          <p>{{user.username}}</p>
+        </a>
+      </div>
+      <div class="item-body"  style="border-bottom: 0px!important;background:rgba(244,246,249,.5);">
+        <div id="workOrderDetails-markdown7" class="show-list-numbers-and-dots">
+      	<div class="row">
+          <label class="custom-textarea item-input text">
+            <input id="mobile" type="tel" ng-model="userPhone" placeholder="Mobile">
+          </label>
+      		</div>
+      	</div>
+        <div class="row">
+          <div class="col col">
+            <div class="item item-text-wrap">
+              <canvas id='signatureCanvas' height='150' class="custom-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+
+        </div>
+        <div class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" ng-click="clearCanvas()">Clear</button>
+          <button class="slds-button slds-button_brand"  ng-click="saveCanvas(userPhone)">Save</button>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+</div>

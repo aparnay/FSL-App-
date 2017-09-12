@@ -1,0 +1,57 @@
+<ion-view title="{{HeaderTitle}}" id="page2">
+  <ion-content scroll="false">
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" class="searchInputUD" ng-model="query" placeholder="Search" ng-change="setToTop(query)">
+      </label>
+    </div>
+    <ion-content id="workOrderSection" padding="true" scroll="true" style="background:#ffffff;" class="has-header has-subheader">
+    <div class="list date-list" ng-repeat="(key, value) in WorkOrders">
+      <div class="item date-list__header item-button-right">
+         {{ key }}
+         <button class="button button-icon icon ion-ios-location"
+          style="color:#0070d2;" ng-click="placeAllAddress(value)">
+        </button>
+      </div>
+      <div class="list" ng-repeat="workOrder in value | filter: query " style="padding:10px;margin-bottom: 0px!important;">
+        <div class="list card" style="margin:0px;padding:0px">
+          <div class="item item-icon-left item-button-right"
+          style="background:rgba(0, 0, 0, 0.07);color:#16325c; font-size:14px!important">
+            <i class="icon">
+            <span class="slds-icon_container1 slds-icon-standard-work-order">
+              <svg class="slds-icon slds-icon--medium" aria-hidden="true">
+              <use href="icons/standard-sprite/svg/symbols.svg#work_order"></use>
+            </svg>
+            </span>
+            </i> #{{workOrder.WorkOrderNumber}}
+            <button class="button button-clear" ng-click="detail(workOrder.Id)" style="color: #16325c;font-size:14px!important">
+              <strong>View Details</strong>
+            </button>
+          </div>
+
+          <div class="item-body" style="background:rgba(244,246,249,.5);">
+            <div id="workOrderDetails-markdown7" class="show-list-numbers-and-dots">
+              <div class="row">
+                  <div class="col col-33"><strong>Subject</strong></div>
+                  <div class="col col-66">{{workOrder.Subject}}</div>
+              </div>
+              <div class="row">
+                  <div class="col col-33"><strong>Account</strong></div>
+                  <div class="col col-66">{{workOrder.Account.Name}}</div>
+              </div>
+              <div class="row">
+                  <div class="col col-33"><strong>Start Date</strong></div>
+                  <div class="col col-66">{{workOrder.StartDate | date:"MMMM d, y 'at' h:mma"}}</div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </ion-content>
+</ion-content>
+
+</ion-view>

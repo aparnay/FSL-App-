@@ -1,0 +1,10 @@
+<ion-popover-view style="height:165px;">
+ <ion-header-bar style="background:#1589ee;font-family: SFS, Arial, sans-serif;">
+  <h1 class="title" style="color:#ffffff;">Choose Connection</h1>
+  </ion-header-bar>
+  <ion-content>
+  <ion-list>
+  <ion-radio ng-model="selectedEnvironment" ng-click="switchEnvironment(env.value)" ng-repeat="env in environment" ng-value="{{env.value}}">{{env.text}}</ion-radio>
+ </ion-list>
+</ion-content>
+</ion-popover-view>

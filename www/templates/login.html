@@ -1,0 +1,39 @@
+<ion-view title="Log In" id="page6" style="background-color:#EEEEEE;">
+  <ion-nav-buttons side="right" class="has-header">
+    <button ng-click="openConnectionPopover($event)" style="color:#0070d2;" class="button button-icon icon ion-android-settings"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" id="login-content" class="has-header">
+    <div class="row responsive-sm">
+      <form id="login-form1" class="list col col-60 col-offset-20">
+        <div class="custom-card" id="login-list2">
+          <div class="item item-divider">
+            <center><img ng-src="img/logo.png" style="width:250px;height:80px;" /></center>
+          </div>
+          <div id="login-markdown5" style="text-align:center;" class="show-list-numbers-and-dots">
+            <p style="color:red;">
+              <strong>{{error.message}}</strong>
+            </p>
+          </div>
+          <div class="input-div">
+            <div class="item-text-wrap">Username</div>
+            <div class="list custom-input-div">
+              <input ng-model="username" type="email" class="custom-input">
+            </div>
+
+
+            <div class="item-text-wrap">Password</div>
+            <div class="list custom-input-div">
+              <input ng-model="password" type="password" class="custom-input">
+            </div>
+
+            <button ng-click="login(username,password)" class="button button-block custom-primary">
+            Log In to {{myEnvironment}}
+          </button>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+  </ion-content>
+</ion-view>
